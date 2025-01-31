@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Victaw Official Gym</title>
+    <style>
+        /* CSS Reset (Normalize.css is recommended for production) */
+        html {
+            box-sizing: border-box;
+        }
+        *, *:before, *:after {
+            box-sizing: inherit;
+        }
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #111;
+            color: white;
+            line-height: 1.6;
+        }
+
+        /* CSS Variables */
+        :root {
+            --primary-color: #f00;
+            --secondary-color: #222;
+            --text-color: #ddd;
+        }
+
+        header {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 70px;
+            margin-left: 20px;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+        }
+
+        nav {
+            margin-right: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropbtn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .dropbtn:hover {
+            background-color: #c00;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #333;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: var(--primary-color);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .section {
+            background: var(--secondary-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.5);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .section h1, .section h2 {
+            color: var(--primary-color);
+        }
+
+        .home {
+            background-image: url('gym_background.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 100px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .home h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .home p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .quotes {
+            font-style: italic;
+            color: var(--text-color);
+            margin-top: 20px;
+        }
+
+        .contact a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            text-align: center;
+            color: var(--text-color);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+            .logo-container {
+                height: 50px;
+            }
+            .dropbtn {
+                width: 100%;
+                text-align: center;
+            }
+            .home h1 {
+                font-size: 36px;
+            }
+            .home p {
+                font-size: 18px;
+            }
+        }
+
+        /* Text Animation Styles */
+        .logo-text {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo-text span {
+            display: inline-block;
+            opacity: 0;
+            animation: reveal 1s forwards;
+            animation-delay: calc(0.1s * var(--char-index));
+        }
+
+        @keyframes reveal {
+            to {
+                opacity: 1;
+            }
+        }
+        .social-media-icon {
+    width: 40px;  
+    height: 40px; 
+    
+}
+
+.instagram-link {
+    color: var(--primary-color); 
+    text-decoration: none; 
+}
+
+.instagram-link:hover {
+    text-decoration: underline; 
+}
+.white-link {
+    color: white;
+    text-decoration: none; /* Optional: Remove underline */
+}
+.contact-link {
+    color: gray;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration-color 0.3s ease; /* Smooth transition */
+    padding-bottom: 2px; /* Add a little space for the underline */
+    border-bottom: 2px solid transparent; /* Initially transparent underline */
+}
+
+.contact-link:hover {
+    color: var(--primary-color); /* Change color on hover */
+    border-bottom-color: var(--primary-color); /* Show underline on hover */
+}
+<style>
+        /* Basic CSS Styling - Customize this extensively */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background-color: #f0f0f0; /* Example background color */
+            color: #333; /* Example text color */
+        }
+        .container {
+            max-width: 960px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            color: #007bff; /* Example heading color */
+        }
+        .faq-section {
+            margin-bottom: 20px;
+        }
+        .faq-question {
+            font-weight: bold;
+            margin-bottom: 5px;
+            cursor: pointer; /* Indicate it's clickable */
+        }
+        .faq-answer {
+            display: none; /* Initially hidden */
+            margin-bottom: 10px;
+            padding-left: 20px; /* Indent the answer */
+        }
+        /* Add more styles for links, images, etc. as needed */
+    </style>
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <svg class="logo" viewBox="0 0 500 200"></svg>
+        </div>
+        <nav aria-label="Main Navigation">
+            <div class="dropdown">
+                <button class="dropbtn" aria-label="Main Menu" aria-expanded="false">Menu</button>
+                <div class="dropdown-content">
+                    <a href="#home">Home</a>
+                    <a href="#about">About Us</a>
+                    <a href="#faq">FAQ</a>
+                    <a href="#matches">Matches & Announcements</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="home" class="section home">
+            <h1>Welcome to Victaw Official Gym</h1>
+            <p>Train like a champion in the best fitness and boxing facility in Ilorin, Kwara State. Whether you're a beginner or a pro, we help you reach your fitness goals!</p>
+           <ul> <div class="quotes">
+                <p>"Sweat, Push, Repeat: Start Your Fitness Journey Today!"</p>
+                <p>"Transform Your Body, Transform Your Life"</p>
+                <p>"Unleash Your Potential: Expert Fitness and Boxing Training in Ilorin"</p>
+                <p>"Get Fit, Feel Amazing: Your Journey Starts Here"</p>
+                <p>"Empower Your Body, Empower Your Mind"</p>
+            </div></ul>
+        </section>
+
+        <section id="about" class="section">
+            <h2>About Us</h2>
+            <p><strong>Welcome to Victaw Official Gym: Where Champions Are Forged</strong></p>
+            <p>At Victaw Official Gym, we're more than just a fitness center - we're a hub for excellence, a catalyst for transformation, and a community of like-minded individuals driven to succeed.</p>
+            <h3>Our Mission</h3>
+            <ul>
+                <li>Achieve your fitness goals and beyond</li>
+                <li>Develop mental toughness and resilience</li>
+                <li>Cultivate a growth mindset and a champion's mentality</li>
+                <li>Build lasting relationships with like-minded individuals</li>
+            </ul>
+        </section>
+
+        <section id="faq" class="section">
+            <h2>FAQ</h2>
+            <div class="container">
+                <h1>Victaw Official Gym - Frequently Asked Questions</h1>
+        
+                <div class="faq-section">
+                    <h2>Membership</h2>
+                    <div class="faq">
+                        <div class="faq-question">What types of memberships do you offer?</div>
+                        <div class="faq-answer">We offer a variety of memberships to suit your needs, including monthly, quarterly, annual, student, and family options. Contact us for details.</div>
+                    </div>
+                    <div class="faq">
+                        <div class="faq-question">How much do memberships cost?</div>
+                        <div class="faq-answer">Please contact us for the most up-to-date pricing information. We also have special offers from time to time.</div>
+                    </div>
+                     </div>
+        
+                <div class="faq-section">
+                    <h2>Facilities & Equipment</h2>
+                     <div class="faq">
+                        <div class="faq-question">What kind of equipment do you have?</div>
+                        <div class="faq-answer">We have a wide range of cardio and strength training equipment. We also have a free weights area.</div>
+                    </div>
+                    </div>
+        
+                <div class="faq-section">
+                    <h2>Contact & Location</h2>
+                    <div class="faq">
+                        <div class="faq-question"><p><strong>Where are we located ?</strong> </p></div>
+                        <div class="faq-answer">📍 Ilorin, Kwara State..</div>
+                    </div>
+                    <div class="faq">
+                        <div class="faq-question"><p><strong>How can I contact you?</strong>
+                        
+                        </div>
+                        <div class="faq-answer"> <a href="#contact" class="contact-link">Contact Us</a></p></div></div>
+                </div>
+        
+            </div>
+        
+            <script>
+                const faqQuestions = document.querySelectorAll('.faq-question');
+        
+                faqQuestions.forEach(question => {
+                    question.addEventListener('click', () => {
+                        const answer = question.nextElementSibling;
+                        answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                    });
+                });
+            </script>
+           
+
+        <section id="matches" class="section">
+            <h2>Matches & Announcements</h2>
+            <p>Stay updated on upcoming events, competitions, and special announcements from Victaw Official Gym.</p>
+        </section>
+
+        <section id="contact" class="section contact">
+            <h2>Contact Us</h2>
+            <p>
+                <strong>Where are we located?</strong> 📍 Ilorin, Kwara State<br>
+                <strong>How can I contact the gym?</strong> 
+                <br>  📞  <a href="tel:+2349097949863">+2349097949863</a><br>
+                <a href="https://www.instagram.com/victhawofficial" target="_blank" class="social-media-link">
+                    <img src="10691868.jpg" alt="Instagram Logo" class="social-media-icon" aria-setsize="logo-container">
+                </a>
+                <a href="https://www.facebook.com/your_facebook_page" target="_blank" class="social-media-link">
+                    <img src="10691867.jpg" alt="Facebook Logo" class="social-media-icon">
+                </a>
+                <a href="https://twitter.com/your_twitter_username" target="_blank" class="social-media-link">
+                    <img src="sl_z_072523_61700_05.jpg" alt="Twitter Logo" class="social-media-icon">
+                </a>
+                <a href="https://www.tiktok.com/@your_tiktok_username" target="_blank" class="social-media-link">
+                    <img src="10691876.jpg" alt="Tiktok Logo" class="social-media-icon">
+                </a>
+            </p>
+             
